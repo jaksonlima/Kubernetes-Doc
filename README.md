@@ -15,3 +15,13 @@ Quantidade de control-plane: `--servers 2`
 Quantidade de agents/pods: `--agents 2`
 
 Desabilitar Balanceamento de carga: `--no-lb`
+
+#### Parametros de criação cluster k3d
+
+Criação do cluster simples
+
+`k3d cluster create <nome-cluster>`
+
+Criação do cluster selecionando <servers> e <agents>
+
+`k3d cluster create <nome-cluster> --servers 2 --agents 2`
