@@ -65,7 +65,7 @@ Delete
 
 ###### services, deployment, replicaset, pods
 
-`kubectl apply -f <nome_arquivo>`
+`kubectl delete [services, deployment, replicaset, pods] <nome_arquivo>`
 
 Visualização tudo
 
