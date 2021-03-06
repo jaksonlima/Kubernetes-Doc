@@ -18,7 +18,11 @@ Quantidade de agents/pods: `--agents 2`
 
 Desabilitar Balanceamento de carga: `--no-lb`
 
-#### Parametros de criação cluster k3d
+#### Parametros de criação/delete cluster k3d
+
+Status cluster
+
+`k3d cluster list`
 
 Criação do cluster simples
 
@@ -36,4 +40,65 @@ para acesso ao container externo do kubernetes.
 
 ###### NodePort 30000 do service kubernetes
 
-`k3d cluster create meucluster --servers 1 --agents 2 -p "8080:30000@loadbalancer"`
+`k3d cluster create <nome-cluster> --servers 1 --agents 2 -p "8080:30000@loadbalancer"`
+
+Para deletar, toda a arvore de criação do cluster juntamente com
+services, deployment, replicaset, pod.
+
+`k3d cluster delete <nome-cluster>`
+
+#### Kubernetes orquestração com kubectl
+
+Criação
+
+###### services, deployment, replicaset, pods
+
+`kubectl create -f <nome_arquivo>`
+
+Alteração
+
+###### services, deployment, replicaset, pods
+
+`kubectl apply -f <nome_arquivo>`
+
+Delete
+
+###### services, deployment, replicaset, pods
+
+`kubectl apply -f <nome_arquivo>`
+
+Visualização tudo
+
+`kubectl get all`
+
+Visualização nodes
+
+`kubectl get nodes`
+
+Visualização service
+
+`kubectl get service`
+
+Visualização deployment
+
+`kubectl get deployment`
+
+Visualização replicaset
+
+`kubectl get replicaset`
+
+Visualização pods
+
+`kubectl get pods`
+
+Visualização detalhado
+
+###### services, deployment, replicaset, pods
+
+`kubectl describe [services, deployment, replicaset, pods]/<nome-ou-id>`
+
+Reencaminhamento de porta para maquina local
+
+###### services, deployment, replicaset, pods
+
+`kubectl port-forward [services, deployment, replicaset, pods]/<nome-ou-id> 8080:80`
