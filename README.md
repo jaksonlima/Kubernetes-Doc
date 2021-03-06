@@ -10,8 +10,8 @@
 
 #### Parametros de configuração k3d
 
-Quantidade de control-plane: ##### --servers 2
+Quantidade de control-plane: `--servers 2`
 
-Quantidade de agents/pods: #####--agents 2
+Quantidade de agents/pods: --agents 2
 
-Desabilitar Balanceamento de carga: ##### --no-lb
+Desabilitar Balanceamento de carga: --no-lb
