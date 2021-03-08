@@ -67,27 +67,19 @@ Delete
 
 `kubectl delete [services, deployment, replicaset, pods] <nome_arquivo>`
 
-Visualização tudo
+Visualização
+
+###### services, deployment, replicaset, pods
 
 `kubectl get all`
 
-Visualização nodes
-
 `kubectl get nodes`
-
-Visualização service
 
 `kubectl get service`
 
-Visualização deployment
-
 `kubectl get deployment`
 
-Visualização replicaset
-
 `kubectl get replicaset`
-
-Visualização pods
 
 `kubectl get pods`
 
@@ -102,3 +94,9 @@ Reencaminhamento de porta para maquina local
 ###### services, deployment, replicaset, pods
 
 `kubectl port-forward [services, deployment, replicaset, pods]/<nome-ou-id> 8080:80`
+
+Visualização pela labels
+
+###### services, deployment, replicaset, pods
+
+`kubectl get [services, deployment, replicaset, pods] -l app=<labels-app-name>`
