@@ -18,6 +18,10 @@ EXPOSE 8081
 
 #docker push jaksonsneider/spring-kube-dev-2.0:tagname
 
+#Para puxar imagem
+
+#docker pull openjdk
+
 #Contêineres remove all:  docker container rm $(docker container ls -a -q)
 #Imagens remove all:      docker image rm $(docker image ls -a -q)
 #Volumes remove all:      docker volume rm $(docker volume ls -q)
