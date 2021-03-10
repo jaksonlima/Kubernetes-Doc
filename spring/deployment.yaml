@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: spring
-          image: jaksonsneider/spring:v1
+          image: jaksonsneider/spring:v2
 
           resources:
             limits:
