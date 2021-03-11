@@ -4,6 +4,10 @@
 
 #### Instalação Kubectl https://kubernetes.io/docs/tasks/tools/
 
+### Habilitar auto complete kubectl
+
+`source <(kubectl completion bash)`
+
 #### Instalação Kd3 https://k3d.io/#installation
 
 ### Configuração Cluster K3D
