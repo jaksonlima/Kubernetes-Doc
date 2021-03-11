@@ -8,6 +8,10 @@
 
 `source <(kubectl completion bash)`
 
+### Habilitar context atual do cluster criado
+
+`kubectl config use-context <name-cluster>`
+
 #### Instalação Kd3 https://k3d.io/#installation
 
 ### Configuração Cluster K3D
@@ -69,13 +73,25 @@ Delete
 
 ###### services, deployment, replicaset, pods
 
-`kubectl delete [services, deployment, replicaset, pods] <nome_arquivo>`
+`kubectl delete [services, deployment, replicaset, pods] <nome>`
+
+Visualização pods internos
+
+`kubectl get pods -n kube-system`
+
+Visualização pods com ip's
+
+`kubectl get pods -o wide -n kube-system`
 
 Visualização
 
 ###### services, deployment, replicaset, pods
 
 `kubectl get all`
+
+`kubectl get pods --all-namespaces`
+
+`kubectl get nodes,services,deployments,replicasets,pods`
 
 `kubectl get nodes`
 

@@ -11,3 +11,6 @@ spec:
       targetPort: 8081
       nodePort: 30000
   type: NodePort
+  # type: NodePort Port Externa, portas obrigatorias -> 30000 a 32767
+  # type: LoadBalancer Port externa e um ip para uso externo
+  # type: ClusterIP IP Interno
