@@ -6,7 +6,7 @@ EXPOSE 8081
 
 #Gerar imagem: sudo docker build -t smartbr/api:v1 .
 
-#Startar imagem: sudo docker run -d -p 8081:8081 --name api smartbr/api:v1
+#Startar imagem: sudo docker run -d -p <Porta host maquina 8081>:<Porta container 8081> --name api smartbr/api:v1
 
 #Em execução: sudo docker container ls -a
 
