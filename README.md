@@ -78,6 +78,7 @@ Delete
 Visualização pods internos
 
 `kubectl get pods -n kube-system`
+`kubectl get pods --namespace=kube-system`
 
 Visualização pods com ip's
 

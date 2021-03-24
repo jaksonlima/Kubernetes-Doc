@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx
+# cat << EOF | kubectl create -f -
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: nginx-pod
+# spec:
+#   containers:
+#   - name: nginx-container
+#     image: nginx
+# EOF
+
+# cat <<EOT>> meupod.yaml
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: nginx-pod
+# spec:
+#   containers:
+#   - name: nginx-container
+#     image: nginx
+# EOT
