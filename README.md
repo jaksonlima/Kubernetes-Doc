@@ -82,6 +82,7 @@ Visualização pods internos
 
 Visualização pods com ip's
 
+`kubectl get all -o wide`
 `kubectl get pods -o wide -n kube-system`
 
 Visualização
@@ -89,6 +90,8 @@ Visualização
 ###### services, deployment, replicaset, pods
 
 `kubectl get all`
+
+`kubectl get pods --show-labels`
 
 `kubectl get pods --all-namespaces`
 
