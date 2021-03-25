@@ -48,6 +48,11 @@ para acesso ao container externo do kubernetes.
 
 ###### NodePort 30000 do service kubernetes
 
+Quando definido o type node port de 30000 a 32747,
+basta pegar ip da maquina e chamar com a porta
+definida no nodePort.
+exemplo: 127.0.0.1:30001
+
 `k3d cluster create <nome-cluster> --servers 1 --agents 2 -p "8080:30000@loadbalancer"`
 
 Para deletar, toda a arvore de criação do cluster juntamente com
@@ -57,11 +62,23 @@ services, deployment, replicaset, pod.
 
 #### Kubernetes orquestração com kubectl
 
-Criação
+usado para passar namespace: `-n`
+usado para passar em gets em tempo real: `-w`
+usado para passar em gets visualização geral dos registros: `-o wide`
+
+Rollout-Back
 
 ###### services, deployment, replicaset, pods
 
-`kubectl create -f <nome_arquivo>`
+`kubectl rollout undo deployment.v1.apps/nginx-deployment`
+
+Criação e com namespace
+
+###### services, deployment, replicaset, pods
+
+`kubectl create -f <nome_arquivo-ou-pasta>`
+
+`kubectl -n robot-shop create -f <nome_arquivo-ou-pasta>`
 
 Alteração
 
@@ -69,11 +86,25 @@ Alteração
 
 `kubectl apply -f <nome_arquivo>`
 
+Executar bash nos pods/containers
+
+###### pods
+
+`kubectl exec -it <nome-pod> /bin/sh`
+
 Delete
 
 ###### services, deployment, replicaset, pods
 
 `kubectl delete [services, deployment, replicaset, pods] <nome>`
+
+Delete por labels
+
+###### services, deployment, replicaset, pods
+
+`kubectl get pods --show-labels`
+
+`kubectl delete pods -l app=http-deployment,pod-template-hash=cd7cc4678`
 
 Visualização pods internos
 
@@ -84,6 +115,11 @@ Visualização pods com ip's
 
 `kubectl get all -o wide`
 `kubectl get pods -o wide -n kube-system`
+`kubectl get pods -o wide -w`
+
+Visualização pods com namespace
+
+`kubectl get pods -n robot-shop -w`
 
 Visualização
 
