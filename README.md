@@ -12,6 +12,10 @@
 
 `kubectl config use-context <name-cluster>`
 
+`kubectl config get-contexts`
+
+`kubectl config delete-cluster my-cluster`
+
 #### Instalação Kd3 https://k3d.io/#installation
 
 ### Configuração Cluster K3D
