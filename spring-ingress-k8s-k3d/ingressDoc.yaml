@@ -13,17 +13,13 @@ spec:
           - path: /v1
             pathType: Prefix
             backend:
-              service:
-                name: service-app
-                port:
-                  number: 8081
+              serviceName: service-app
+              servicePort: 8081
           - path: /v2
             pathType: Prefix
             backend:
-              service:
-                name: service-app
-                port:
-                  number: 8081
+              serviceName: service-app
+              servicePort: 8081
 
 ---
 apiVersion: networking.k8s.io/v1beta1
