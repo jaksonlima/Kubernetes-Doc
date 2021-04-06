@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-service
+spec:
+  selector:
+    app: nginx-color
+  ports:
+    - name: "app-service-nginx"
+      protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30009
+  type: NodePort
