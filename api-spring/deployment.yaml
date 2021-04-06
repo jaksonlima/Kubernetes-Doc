@@ -17,11 +17,4 @@ spec:
           image: jaksonsneider/spring:v2
           ports:
             - containerPort: 8081
-
           resources:
-            limits:
-              memory: 512Mi
-              cpu: "1"
-            requests:
-              memory: 256Mi
-              cpu: "0.2"
