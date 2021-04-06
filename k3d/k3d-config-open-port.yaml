@@ -1,0 +1,9 @@
+apiVersion: k3d.io/v1alpha2
+kind: Simple
+name: k3d-init
+servers: 1
+agents: 2
+ports:
+  - port: 8081:30008
+    nodeFilters:
+      - loadbalancer
