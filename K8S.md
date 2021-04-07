@@ -1,3 +1,5 @@
+#### Instalação K8S https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
+
 ## K8S Parametros
 
 ### Habilitar context atual do cluster criado
@@ -7,8 +9,6 @@
 `kubectl config get-contexts`
 
 `kubectl config delete-cluster my-cluster`
-
-#### Instalação Kd3 https://k3d.io/#installation
 
 #### Kubernetes orquestração com kubectl
 
@@ -110,3 +110,11 @@ Visualização pela labels
 ###### services, deployment, replicaset, pods
 
 `kubectl get [services, deployment, replicaset, pods] -l app=<labels-app-name>`
+
+Recuperar token join
+
+`kubeadm token create --print-join-command`
+
+Visualização de tipos
+
+`kubectl explain [services, deployment, replicaset, pods]`
