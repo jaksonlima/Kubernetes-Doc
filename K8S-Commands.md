@@ -1,6 +1,6 @@
 #### Instalação K8S https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
 
-## K8S Parametros
+## K8S Comandos
 
 ### Habilitar context atual do cluster criado
 
@@ -21,6 +21,10 @@ Rollout-Back
 ###### services, deployment, replicaset, pods
 
 `kubectl rollout undo deployment.v1.apps/nginx-deployment`
+
+Criação namespace
+
+`kubectl create namespace <nome-namespace>`
 
 Criação e com namespace
 
@@ -118,3 +122,15 @@ Recuperar token join
 Visualização de tipos
 
 `kubectl explain [services, deployment, replicaset, pods]`
+
+`kubectl explain [services, deployment, replicaset, pods] --recursive`
+
+`kubectl explain [services, deployment, replicaset, pods].spec.template.spec --recursive`
+
+Criação service
+
+`kubectl expose [deployment, replicaset, pods] --port <porta dos containers pods>`
+
+Visualização logs pod
+
+`kubectl logs -f <nome-pod>`
