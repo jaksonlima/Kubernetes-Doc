@@ -1,140 +1,192 @@
-#### Instalação K8S https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
+## K8S command
 
-## K8S Comandos
+- [https://kubernetes.io/docs/reference/generated/kubectl/kubectl-command-](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands)
+- [https://kubernetes.io/docs/reference/kubectl/cheatsheet/](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+- [https://kubernetes.io/docs/reference/kubectl/kubectl/](https://kubernetes.io/docs/reference/kubectl/kubectl/)
 
-### Habilitar context atual do cluster criado
+### Habilitar contexts atual do cluster criado
 
-`kubectl config get-clusters`
+```
+kubectl config get-clusters
 
-`kubectl config delete-cluster my-cluster`
+kubectl config delete-cluster my-cluster
 
-`kubectl config current-context`
+kubectl config current-context
 
-`kubectl config get-contexts`
+kubectl config get-contexts
 
-`kubectl config use-context <name-cluster>`
+kubectl config use-context <name-cluster>
+```
 
-#### Kubernetes orquestração com kubectl
+### Adicional CLI
 
-usado para passar namespace: `-n`
-usado para passar em gets em tempo real: `-w`
-usado para passar em gets visualização geral dos registros: `-o wide`
+- Usado para passar namespace: `-n`
+- Usado para passar em gets em tempo real: `-w`
+- Usado para passar em gets visualização geral dos registros: `-o wide`
+- Todos namespaces: `--all-namespaces`
 
-Rollout-Back
+### Rollout-Back
 
-###### services, deployment, replicaset, pods
+- ###### services, deployment, replicaset, pods, ...
 
-`kubectl rollout undo deployment.v1.apps/nginx-deployment`
+```
+kubectl rollout undo deployment.v1.apps/nginx-deployment
+```
 
-Criação namespace
+### Criação namespace
 
-`kubectl create namespace <nome-namespace>`
+```
+kubectl create namespace <nome-namespace>
+```
 
-Criação e com namespace
+### Executar arquivo de manifesto
 
-###### services, deployment, replicaset, pods
+- ###### services, deployment, replicaset, pods, ...
 
-`kubectl create -f <nome_arquivo-ou-pasta>`
+```
+kubectl create -f <nome_arquivo-ou-pasta>
 
-`kubectl -n robot-shop create -f <nome_arquivo-ou-pasta>`
+kubectl -n <namespace> create -f <nome_arquivo-ou-pasta>
+```
 
-Alteração
+### Alteração arquivo de manifesto
 
-###### services, deployment, replicaset, pods
+- ###### services, deployment, replicaset, pods, ...
 
-`kubectl apply -f <nome_arquivo>`
+```
+kubectl apply -f <nome_arquivo>
+```
 
-Executar bash nos pods/containers
+### Executar bash/terminal nos pods/containers
 
-###### pods
+- ###### pods
 
-`kubectl exec -it <nome-pod> /bin/sh`
+```
+kubectl exec -it <nome-pod> /bin/sh
+```
 
-Delete
+### Delete
 
-###### services, deployment, replicaset, pods
+- ###### services, deployment, replicaset, pods, ...
 
-`kubectl delete [services, deployment, replicaset, pods] <nome>`
+```
+kubectl delete deployment <nome>
 
-Delete por labels
+kubectl delete -f <arquivo-manifesto>
+```
 
-###### services, deployment, replicaset, pods
+### Delete por labels
 
-`kubectl get pods --show-labels`
+- ###### services, deployment, replicaset, pods, ...
 
-`kubectl delete pods -l app=http-deployment,pod-template-hash=cd7cc4678`
+```
+kubectl get pods --show-labels
 
-Visualização pods internos
+kubectl delete pods -l app=nginx, template=spring
+```
 
-`kubectl get pods -n kube-system`
-`kubectl get pods --namespace=kube-system`
+### Visualização por labels
 
-Visualização pods com ip's
+- ###### services, deployment, replicaset, pods, ...
 
-`kubectl get all -o wide`
-`kubectl get pods -o wide -n kube-system`
-`kubectl get pods -o wide -w`
+```
+kubectl get pods -l app=nginx, template=spring
+```
 
-Visualização pods com namespace
+### Visualização pods internos
 
-`kubectl get pods -n robot-shop -w`
+```
+kubectl get pods -n kube-system
 
-Visualização
+kubectl get pods -namespace=kube-system
+```
 
-###### services, deployment, replicaset, pods
+### Visualização pods com ip's
 
-`kubectl get all`
+```
+kubectl get all -o wide
 
-`kubectl get pods --show-labels`
+kubectl get pods -o wide -n kube-system
 
-`kubectl get pods --all-namespaces`
+kubectl get pods -o wide -w
+```
 
-`kubectl get nodes,services,deployments,replicasets,pods`
+### Visualização por namespaces
 
-`kubectl get nodes`
+- ###### services, deployment, replicaset, pods, ...
 
-`kubectl get service`
+```
+kubectl get pods -n <namespace>
+```
 
-`kubectl get deployment`
+### Visualização detalhada
 
-`kubectl get replicaset`
+- ###### services, deployment, replicaset, pods, ...
 
-`kubectl get pods`
+```
+kubectl describe pod <nome-ou-ID>
+```
 
-Visualização detalhado
+### Visualização logs pod
 
-###### services, deployment, replicaset, pods
+```
+kubectl logs -f <nome-pod>
+```
 
-`kubectl describe [services, deployment, replicaset, pods]/<nome-ou-id>`
+### Reencaminhamento de porta
 
-Reencaminhamento de porta para maquina local
+- ###### services, pods
 
-###### services, deployment, replicaset, pods
+```
+kubectl port-forward services <nome-ou-ID> Port-Maquina:Port-Container
+```
 
-`kubectl port-forward [services, deployment, replicaset, pods]/<nome-ou-id> 8080:80`
+### Visualização geral
 
-Visualização pela labels
+- ###### services, deployment, replicaset, pods, ...
 
-###### services, deployment, replicaset, pods
+```
+kubectl get all
 
-`kubectl get [services, deployment, replicaset, pods] -l app=<labels-app-name>`
+kubectl get pods --show-labels
 
-Recuperar token join
+kubectl get pods --all-namespaces
 
-`kubeadm token create --print-join-command`
+kubectl get nodes,services,deployments,replicasets,pods
 
-Visualização de tipos
+kubectl get nodes
 
-`kubectl explain [services, deployment, replicaset, pods]`
+kubectl get service
 
-`kubectl explain [services, deployment, replicaset, pods] --recursive`
+kubectl get deployment
 
-`kubectl explain [services, deployment, replicaset, pods].spec.template.spec --recursive`
+kubectl get replicaset
 
-Criação service
+kubectl get pods
+```
 
-`kubectl expose [deployment, replicaset, pods] --port <porta dos containers pods>`
+### Recuperar token join
 
-Visualização logs pod
+```
+kubeadm token create --print-join-command
+```
 
-`kubectl logs -f <nome-pod>`
+### Visualização de detalhada objeto de uso
+
+- ###### services, deployment, replicaset, pods, ...
+
+```
+kubectl explain deployment`
+
+kubectl explain deployment --recursive`
+
+kubectl explain deployment.spec.template.spec --recursive`
+```
+
+### Criação service
+
+- ###### deployment, pods, ...
+
+```
+kubectl expose deployment --port <porta dos containers pods>
+```
