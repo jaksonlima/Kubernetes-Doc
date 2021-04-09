@@ -176,11 +176,11 @@ kubeadm token create --print-join-command
 - ###### services, deployment, replicaset, pods, ...
 
 ```
-kubectl explain deployment`
+kubectl explain deployment
 
-kubectl explain deployment --recursive`
+kubectl explain deployment --recursive
 
-kubectl explain deployment.spec.template.spec --recursive`
+kubectl explain deployment.spec.template.spec --recursive
 ```
 
 ### Criação service
