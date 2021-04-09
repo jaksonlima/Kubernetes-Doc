@@ -189,4 +189,28 @@ kubectl explain deployment.spec.template.spec --recursive
 
 ```
 kubectl expose deployment --port <porta dos containers pods>
+
+kubectl expose deployment app-deployment --type=ClusterIP
+kubectl expose deployment app-deployment --type=NodePort
+kubectl expose deployment app-deployment --type=LoadBalancer
+```
+
+### Vizualizar endpints
+
+```
+kubectl get endpoints
+```
+
+### Aumentar replicas
+
+```
+kubectl scale --replicas=10 deployment app-deployment
+```
+
+### Editar arquivo manifesto em execução
+
+- ###### services, deployment, replicaset, pods, ...
+
+```
+kubectl edit service <nome>
 ```
