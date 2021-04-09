@@ -114,7 +114,7 @@ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl versio
 kubeadm join --token 39c341.a3bc3c4dd49758d5 IP_DO_MASTER:6443 --discovery-token-ca-cert-hash sha256:37092
 ```
 
-- Verificando a instalação no control plene master
+- Verificando a instalação no control plane master
 
 ```
 kubectl get nodes
