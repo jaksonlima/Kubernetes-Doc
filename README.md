@@ -119,3 +119,7 @@ kubeadm join --token 39c341.a3bc3c4dd49758d5 IP_DO_MASTER:6443 --discovery-token
 ```
 kubectl get nodes
 ```
+
+## Comandos kubectl
+
+- [https://github.com/jaksonlima/Kubernetes-Doc/blob/main/K8S-Commands.md](https://github.com/jaksonlima/Kubernetes-Doc/blob/main/K8S-Commands.md)
