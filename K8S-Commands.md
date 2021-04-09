@@ -4,11 +4,15 @@
 
 ### Habilitar context atual do cluster criado
 
-`kubectl config use-context <name-cluster>`
+`kubectl config get-clusters`
+
+`kubectl config delete-cluster my-cluster`
+
+`kubectl config current-context`
 
 `kubectl config get-contexts`
 
-`kubectl config delete-cluster my-cluster`
+`kubectl config use-context <name-cluster>`
 
 #### Kubernetes orquestração com kubectl
 
