@@ -1,6 +1,20 @@
 ## HaProxy
 
-- [https://www.haproxy.com/](https://www.haproxy.com/)
+- Tipos de topologias de K8s multi-master:
+
+- [https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/ha-topology/](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/ha-topology/)
+
+- Instalação kubeadm, kubelet e kubectl:
+
+- [https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/)
+
+- Instalação Kubernetes multi-master:
+
+- [https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/high-availability/](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/high-availability/)
+
+- HAproxy:
+
+- [https://www.haproxy.org/](https://www.haproxy.org/)
 
 ```
 hostname k8s-haproxy-1
