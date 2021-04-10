@@ -234,3 +234,27 @@ kubectl create -f <yaml> -n <namespace>
 
 kubectl get limitrange -n <namespace>
 ```
+
+### Taint NoSchedule
+
+- ##### node
+
+```
+Add NoSchedule -> kubectl taint node <nome-no> key1=value1:NoSchedule
+
+Add Master NoSchedule -> kubectl taint node elliot-01 node-role.kubernetes.io/Master:NoSchedule
+
+Delete NoSchedule -> kubectl taint node nome-no key1:NoSchedule-
+
+Delete master NoSchedule -> kubectl taint node elliot-01 node-role.kubernetes.io/master:NoSchedule-
+```
+
+### Taint NoExecute
+
+- ##### node
+
+```
+Add NoSchedule -> kubectl taint node <nome-no> key1=value1:NoExecute
+
+Delete NoSchedule -> kubectl taint node nome-no key1:NoExecute-
+```
