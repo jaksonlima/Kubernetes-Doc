@@ -62,7 +62,17 @@ kubectl apply -f <nome_arquivo>
 - ###### pods
 
 ```
-kubectl exec -it <nome-pod> /bin/sh
+kubectl exec -ti <nome-ou-ID> /bin/sh
+
+kubectl exec <nome-ou-ID> -it -- bash
+```
+
+### Estressar pod/container
+
+```
+apt-get update && apt-get install
+
+stress --vm 1 --vm-bytes 512M
 ```
 
 ### Delete
@@ -213,4 +223,14 @@ kubectl scale --replicas=10 deployment app-deployment
 
 ```
 kubectl edit service <nome>
+```
+
+### Limite recurso por namespace
+
+- ##### limitrange
+
+```
+kubectl create -f <yaml> -n <namespace>
+
+kubectl get limitrange -n <namespace>
 ```
