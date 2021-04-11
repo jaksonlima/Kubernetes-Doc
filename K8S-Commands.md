@@ -258,3 +258,11 @@ Add NoSchedule -> kubectl taint node <nome-no> key1=value1:NoExecute
 
 Delete NoSchedule -> kubectl taint node nome-no key1:NoExecute-
 ```
+
+### Obter arquivo manisfesto
+
+- ###### services, deployment, replicaset, pods, ...
+
+```
+kubectl get deployment <nome-ou-ID> -o yaml > nome.yaml
+```
