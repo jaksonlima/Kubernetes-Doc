@@ -16,6 +16,8 @@ kubectl config current-context
 kubectl config get-contexts
 
 kubectl config use-context <name-cluster>
+
+kubeadm reset
 ```
 
 ### Adicional CLI
@@ -24,6 +26,7 @@ kubectl config use-context <name-cluster>
 - Usado para passar em gets em tempo real: `-w`
 - Usado para passar em gets visualização geral dos registros: `-o wide`
 - Todos namespaces: `--all-namespaces`
+- Todos labels: `--show-labels`
 
 ### Rollout-Back
 
@@ -39,7 +42,17 @@ kubectl rollout undo deployment.v1.apps/nginx-deployment
 kubectl create namespace <nome-namespace>
 ```
 
-### Executar arquivo de manifesto
+### Obter arquivo manisfesto
+
+- ###### services, deployment, replicaset, pods, ...
+
+```
+kubectl get deployment <nome-ou-ID> -o yaml > nome.yaml
+
+kubectl run pod nginx --image=nginx --dry-run=client -o yaml > pod.yaml
+```
+
+### Criação/Execução declarativo
 
 - ###### services, deployment, replicaset, pods, ...
 
@@ -47,6 +60,16 @@ kubectl create namespace <nome-namespace>
 kubectl create -f <nome_arquivo-ou-pasta>
 
 kubectl -n <namespace> create -f <nome_arquivo-ou-pasta>
+```
+
+### Criação/Execução imperativo
+
+- ###### deployment, pods, ...
+
+```
+kubectl create pod nginx --image=nginx --port=80
+
+kubectl create deployment nginx --image=nginx --port=80
 ```
 
 ### Alteração arquivo de manifesto
@@ -200,15 +223,17 @@ kubectl explain deployment.spec.template.spec --recursive
 ```
 kubectl expose deployment --port <porta dos containers pods>
 
-kubectl expose deployment app-deployment --type=ClusterIP
-kubectl expose deployment app-deployment --type=NodePort
-kubectl expose deployment app-deployment --type=LoadBalancer
+kubectl expose deployment app-deployment --type=ClusterIP --port <porta dos containers pods>
+kubectl expose deployment app-deployment --type=NodePort --port <porta dos containers pods>
+kubectl expose deployment app-deployment --type=LoadBalancer --port <porta dos containers pods>
 ```
 
 ### Vizualizar endpints
 
 ```
 kubectl get endpoints
+
+kubectl describe endpoints  <nome-ou-ID>
 ```
 
 ### Aumentar replicas
@@ -256,13 +281,24 @@ Delete master NoSchedule -> kubectl taint node elliot-01 node-role.kubernetes.io
 ```
 Add NoSchedule -> kubectl taint node <nome-no> key1=value1:NoExecute
 
+
 Delete NoSchedule -> kubectl taint node nome-no key1:NoExecute-
-```
-
-### Obter arquivo manisfesto
-
-- ###### services, deployment, replicaset, pods, ...
 
 ```
-kubectl get deployment <nome-ou-ID> -o yaml > nome.yaml
+
+### Taint all
+
+```
+Add All -> kubectl taint node --all key1=value1:NoExecute
+
+Delete All -> kubectl taint node --all key1=value1:NoExecute-
+```
+
+### Desabilitar/Habilitar No
+
+```
+kubectl cordon <nome-no>
+
+kubectl uncordon <nome-no>
+
 ```

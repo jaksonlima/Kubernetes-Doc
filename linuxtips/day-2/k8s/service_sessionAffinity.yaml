@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: nginx
+  name: nginx-clusterip
+  namespace: default
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+  selector:
+    run: nginx
+  sessionAffinity: ClientIP
+  type: ClusterIP
