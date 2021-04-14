@@ -108,6 +108,17 @@ kubectl delete deployment <nome>
 kubectl delete -f <arquivo-manifesto>
 ```
 
+### Criação/Delete labels
+
+- ###### services, deployment, replicaset, pods, ...
+
+```
+kubectl label pods <nome-pod> app=nginx
+
+kubectl label pods app- --all
+
+```
+
 ### Delete por labels
 
 - ###### services, deployment, replicaset, pods, ...
@@ -124,6 +135,8 @@ kubectl delete pods -l app=nginx, template=spring
 
 ```
 kubectl get pods -l app=nginx, template=spring
+
+kubectl get pods -L app
 ```
 
 ### Visualização pods internos
