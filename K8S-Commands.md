@@ -129,7 +129,7 @@ kubectl label pod <nome-pod> --all
 
 ```
 
-### Delete por labels
+### Delete labels
 
 - ###### services, deployment, replicaset, pods, ...
 
