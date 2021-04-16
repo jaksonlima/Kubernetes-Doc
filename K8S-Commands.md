@@ -32,6 +32,7 @@ kubeadm reset
 - Forçar aplicar `--overwrite`
 - Listar especificações labels `--all`
 - Scale `--replicas`
+- Labels list `--list`
 
 ### Rollout/Rollback
 
@@ -124,7 +125,7 @@ kubectl delete -f <arquivo-manifesto>
 ```
 kubectl label pod <nome-pod> app=nginx
 
-kubectl label pod <nome-pod> --all
+kubectl label pod <nome-pod> --list
 
 
 ```
@@ -138,7 +139,7 @@ kubectl label pod <nome-pod> app=nginx-
 
 kubectl label pod <nome-pod> app-
 
-kubectl label pod <nome-pod> --all
+kubectl label pod <nome-pod> --list
 ```
 
 ### Visualização por labels
