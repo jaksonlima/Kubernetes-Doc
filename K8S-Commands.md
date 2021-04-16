@@ -27,13 +27,22 @@ kubeadm reset
 - Usado para passar em gets visualização geral dos registros: `-o wide`
 - Todos namespaces: `--all-namespaces`
 - Todos labels: `--show-labels`
+- Ver detalhes de alteração `--revision`
+- Setar qual revisão deseja voltar `--to-revision`
+- Forçar aplicar `--overwrite`
+- Listar especificações labels `--all`
+- Scale `--replicas`
 
-### Rollout-Back
+### Rollout/Rollback
 
-- ###### services, deployment, replicaset, pods, ...
+- ###### daemonset, deployment, replicaset, pods, ...
 
 ```
-kubectl rollout undo deployment.v1.apps/nginx-deployment
+kubectl rollout history daemonset <nome>
+
+kubectl rollout history daemonset <nome-ou-ID> --revision=<numero-revisao>
+
+kubectl rollout undo deployment <nome-ou-ID> --to-revision=<numero-revisao>
 ```
 
 ### Criação namespace
@@ -87,7 +96,7 @@ kubectl apply -f <nome_arquivo>
 ```
 kubectl exec -ti <nome-ou-ID> /bin/sh
 
-kubectl exec <nome-ou-ID> -it -- bash
+kubectl exec -ti <nome-ou-ID>  -- bash
 ```
 
 ### Estressar pod/container
@@ -249,7 +258,9 @@ kubectl get endpoints
 kubectl describe endpoints  <nome-ou-ID>
 ```
 
-### Aumentar replicas
+### Scale replicas
+
+- ###### deployment, replicaset, replicationcontroller, statefulset
 
 ```
 kubectl scale --replicas=10 deployment app-deployment
@@ -314,4 +325,12 @@ kubectl cordon <nome-no>
 
 kubectl uncordon <nome-no>
 
+```
+
+### Alteração imagem
+
+- ###### deployment, replicaset, deamondset,pods, ...
+
+```
+kubectl set image daemonset appdaemonset nginx=jaksonsneider/nginx:red
 ```

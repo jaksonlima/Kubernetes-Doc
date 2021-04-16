@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
   name: nginx-deployment-v2
   labels:
@@ -17,6 +17,7 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: jaksonsneider/nginx:red
+          image: jaksonsneider/nginx:blue
           ports:
             - containerPort: 80
+          resources:

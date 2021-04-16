@@ -1,11 +1,16 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
   name: nginx-deployment-v2
   labels:
     nginx: deployment
 spec:
   replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 2
+      maxUnavailable: 3
   selector:
     matchLabels:
       app: nginx
@@ -20,3 +25,4 @@ spec:
           image: jaksonsneider/nginx:red
           ports:
             - containerPort: 80
+          resources:
