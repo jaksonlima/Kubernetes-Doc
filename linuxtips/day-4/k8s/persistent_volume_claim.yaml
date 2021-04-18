@@ -1,0 +1,29 @@
+# sudo apt-get install nfs-kernel-server
+
+# sudo nano /etc/exports
+
+# /opt/dados *(rw,sync,no_root_squash,subtree_check)
+
+#  sudo exportfs -ar
+
+# sudo apt-get install nfs-common
+
+# showmount -e 172.31.36.93
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+    # - ReadWriteOnce
+    # - ReadOnlyMany
+  persistentVolumeReclaimPolicy: Retain
+  nfs:
+    path: /opt/dados
+    server: 172.31.36.93
+    readOnly: false

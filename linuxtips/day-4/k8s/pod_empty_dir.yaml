@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox
+  labels:
+    app: busybox
+  namespace: default
+spec:
+  containers:
+    - image: busybox
+      name: busy
+      command:
+        - sleep
+        - "3600"
+      resourcers:
+      volumeMounts:
+        - mountPath: /lima
+          name: lima-dir
+  volumes:
+    - name: lima-dir
+      emptyDir: {}

@@ -140,6 +140,8 @@ kubectl label pod <nome-pod> app=nginx-
 kubectl label pod <nome-pod> app-
 
 kubectl label pod <nome-pod> --list
+
+kubectl label pods --list app-
 ```
 
 ### Visualização por labels
