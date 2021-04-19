@@ -74,13 +74,30 @@ kubectl -n <namespace> create -f <nome_arquivo-ou-pasta>
 
 ### Criação/Execução imperativo
 
-- ###### deployment, pods, ...
+- ###### deployment, pods, secret,...
 
 ```
 kubectl create pod nginx --image=nginx --port=80
 
 kubectl create deployment nginx --image=nginx --port=80
+
 ```
+
+### Criação Secret
+
+```
+kubectl create secret generic my-secret --from-file=secret.txt
+
+kubectl create secret generic my-literal-secret --from-literal user=linuxtips --from-literal password=catota
+```
+
+### Criação ConfigMap
+
+```
+ kubectl create configmap cores-frutas --from-literal uva=roxa --from-file=predileto --from-file=frutas/
+```
+
+###
 
 ### Alteração arquivo de manifesto
 
@@ -95,7 +112,7 @@ kubectl apply -f <nome_arquivo>
 - ###### pods
 
 ```
-kubectl exec -ti <nome-ou-ID> /bin/sh
+kubectl exec -ti <nome-ou-ID> -- sh
 
 kubectl exec -ti <nome-ou-ID>  -- bash
 ```

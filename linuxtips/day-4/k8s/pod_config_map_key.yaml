@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busy-configmap
+  namespace: default
+  labels:
+    app: busy-configmap
+spec:
+  containers:
+    - name: busy-configmap
+      image: busybox
+      resources:
+      command:
+        - sleep
+        - "3600"
+      env:
+        - name: frutas
+          valueFrom:
+            configMapKeyRef:
+              name: cores-frutas
+              key: predileto
