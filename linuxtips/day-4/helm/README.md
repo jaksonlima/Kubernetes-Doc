@@ -1,11 +1,11 @@
 ### Helm
 
-##### doc git
+##### documentação git
 
 - [https://github.com/badtuxx/DescomplicandoKubernetes/blob/master/day-4/DescomplicandoKubernetes-Day4.md](https://github.com/badtuxx/DescomplicandoKubernetes/blob/master/day-4/DescomplicandoKubernetes-Day4.md)
 
 ```
- curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash -
+curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash -
 ```
 
 ```
