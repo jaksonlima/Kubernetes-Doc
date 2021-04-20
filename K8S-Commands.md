@@ -33,6 +33,7 @@ kubeadm reset
 - Listar especificações labels `--all`
 - Scale `--replicas`
 - Labels list `--list`
+- All namespaces `-A`
 
 ### Rollout/Rollback
 
@@ -95,6 +96,18 @@ kubectl create secret generic my-literal-secret --from-literal user=linuxtips --
 
 ```
  kubectl create configmap cores-frutas --from-literal uva=roxa --from-file=predileto --from-file=frutas/
+```
+
+### Criação Service Account
+
+```
+ kubectl get clusterrole
+
+ kubectl get clusterrolebindings.rbac.authorization.k8s.io
+
+ kubectl create serviceaccount lima
+
+ kubectl create clusterrolebinding toskeria --serviceaccount=default:lima --clusterrole=cluster-admin
 ```
 
 ###
