@@ -370,3 +370,17 @@ kubectl uncordon <nome-no>
 ```
 kubectl set image daemonset appdaemonset nginx=jaksonsneider/nginx:red
 ```
+
+### PersistentVolume/PersistentVolumeClaim
+
+- ###### exemplos
+
+- [https://github.com/jaksonlima/Kubernetes-Doc/blob/main/linuxtips/day-4/k8s/persistent_volume.yaml](https://github.com/jaksonlima/Kubernetes-Doc/blob/main/linuxtips/day-4/k8s/persistent_volume.yaml)
+
+- [https://github.com/jaksonlima/Kubernetes-Doc/blob/main/linuxtips/day-4/k8s/persistent_volume_claim.yaml](https://github.com/jaksonlima/Kubernetes-Doc/blob/main/linuxtips/day-4/k8s/persistent_volume_claim.yaml)
+
+- [https://github.com/jaksonlima/Kubernetes-Doc/blob/main/linuxtips/day-4/k8s/deployment_persistent.yaml](https://github.com/jaksonlima/Kubernetes-Doc/blob/main/linuxtips/day-4/k8s/deployment_persistent.yaml)
+
+```
+kubectl get persistentvolume,persistentvolumeclaims
+```

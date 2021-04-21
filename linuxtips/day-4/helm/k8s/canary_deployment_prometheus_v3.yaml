@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+  labels:
+    app: deployment
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      name: app-spring
+      labels:
+        app: spring
+    spec:
+      containers:
+        - name: spring
+          image: jaksonsneider/spring:v3
+          ports:
+            - containerPort: 8081
+          env:
+            - name: VERSION
+              value: "0.0.1"
+            - name: AUTHOR
+              value: "lima"
+          resources:
+          volumeMounts:
+            - name: log
+              mountPath: /var/log/spring
+      volumes:
+        - name: log
+          emptyDir: {}

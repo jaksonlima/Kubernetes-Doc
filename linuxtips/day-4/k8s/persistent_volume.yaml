@@ -1,3 +1,5 @@
+# Server configuração
+
 # sudo apt-get install nfs-kernel-server
 
 # sudo nano /etc/exports
@@ -6,19 +8,28 @@
 
 #  sudo exportfs -ar
 
+# Maquinas que irão se conectar
+
 # sudo apt-get install nfs-common
 
 # showmount -e 172.31.36.93
 
 ---
 apiVersion: v1
-kind: PersistentVolumeClaim
+kind: PersistentVolume
 metadata:
-  name: pvc
+  name: pv
+  labels:
+    app: persistentvolume
 spec:
-  volumeMode: Filesystem
+  capacity:
+    storage: 1Gi
   accessModes:
     - ReadWriteMany
-  resources:
-    requests:
-      storage: 800Mi
+    # - ReadWriteOnce
+    # - ReadOnlyMany
+  persistentVolumeReclaimPolicy: Retain
+  nfs:
+    path: /opt/dados
+    server: 172.31.36.93
+    readOnly: false
