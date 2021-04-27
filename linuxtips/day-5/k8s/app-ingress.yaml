@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: app-ingress
+spec:
+  rules:
+    - host: ec2-18-229-160-99.sa-east-1.compute.amazonaws.com # Mude para o seu endereço dns
+      http:
+        paths:
+          - backend:
+              service:
+                name: appsvc1
+                port:
+                  number: 80
+            path: /app1
+            pathType: Prefix
+          - backend:
+              service:
+                name: appsvc2
+                port:
+                  number: 80
+            path: /app2
+            pathType: Prefix

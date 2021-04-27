@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+spec:
+  rules:
+    - host: ec2-18-229-160-99.sa-east-1.compute.amazonaws.com # Mude para o seu endereço dns
+      http:
+        paths:
+          - backend:
+              service:
+                name: nginx-ingress
+                port:
+                  number: 18080
+            path: /nginx_status
+            pathType: Prefix
