@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+  labels:
+    app: deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring
+  revisionHistoryLimit: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: spring
+    spec:
+      containers:
+        - name: spring
+          image: jaksonsneider/spring:v3
+          ports:
+            - containerPort: 8081
+          env:
+            - name: AUTHOR
+              value: "Jakson Lima"
+            - name: VERSION
+              value: "2.0.0"
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "64Mi"
+            limits:
+              cpu: "500m"
+              memory: "128Mi"
