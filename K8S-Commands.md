@@ -35,6 +35,7 @@ kubeadm reset
 - Scale `--replicas`
 - Labels list `--list`
 - Ver contínuo `watch kubectl <commands>`
+- Yaml gerador `--dry-run=client -o yaml > pod.yaml`
 
 ### Rollout/Rollback
 
@@ -62,6 +63,8 @@ kubectl create namespace <nome-namespace>
 kubectl get deployment <nome-ou-ID> -o yaml > nome.yaml
 
 kubectl run pod nginx --image=nginx --dry-run=client -o yaml > pod.yaml
+
+kubectl create deployment app --image jaksonsneider/spring:v3 --dry-run=client -o yaml
 ```
 
 ### Criação/Execução declarativo
