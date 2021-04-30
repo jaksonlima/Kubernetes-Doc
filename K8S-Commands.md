@@ -34,6 +34,7 @@ kubeadm reset
 - Scale `--replicas`
 - Labels list `--list`
 - All namespaces `-A`
+- All namespaces `watch kubectl <commands>`
 
 ### Rollout/Rollback
 

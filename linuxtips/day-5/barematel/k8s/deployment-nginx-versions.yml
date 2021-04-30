@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-red-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      nginx: red
+  template:
+    metadata:
+      labels:
+        nginx: red
+    spec:
+      containers:
+        - name: nginx-blue
+          image: jaksonsneider/nginx:red
+          resources:
+          ports:
+            - containerPort: 80
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-blue-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      nginx: blue
+  template:
+    metadata:
+      labels:
+        nginx: blue
+    spec:
+      containers:
+        - name: nginx-blue
+          image: jaksonsneider/nginx:blue
+          resources:
+          ports:
+            - containerPort: 80
