@@ -26,6 +26,7 @@ kubeadm reset
 - Usado para passar em gets em tempo real: `-w`
 - Usado para passar em gets visualização geral dos registros: `-o wide`
 - Todos namespaces: `--all-namespaces`
+- Todos namespaces `-A`
 - Todos labels: `--show-labels`
 - Ver detalhes de alteração `--revision`
 - Setar qual revisão deseja voltar `--to-revision`
@@ -33,8 +34,7 @@ kubeadm reset
 - Listar especificações labels `--all`
 - Scale `--replicas`
 - Labels list `--list`
-- All namespaces `-A`
-- All namespaces `watch kubectl <commands>`
+- Ver contínuo `watch kubectl <commands>`
 
 ### Rollout/Rollback
 
