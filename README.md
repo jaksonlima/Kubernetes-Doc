@@ -4,7 +4,7 @@
 
 - [https://github.com/badtuxx/DescomplicandoKubernetes](https://github.com/badtuxx/DescomplicandoKubernetes)
 
-## Instalação do Docker
+# ⭐ Instalação do Docker
 
 - Debian
 
@@ -45,7 +45,7 @@ systemctl restart docker
 docker info | grep -i cgroup
 ```
 
-## Instalação do Kubernetes
+# ⭐ Instalação do Kubernetes
 
 ```
 apt-get update && apt-get install -y apt-transport-https gnupg2
@@ -65,7 +65,7 @@ apt-get install -y kubelet kubeadm kubectl
 swapoff -a
 ```
 
-## Inicialização cluster
+# ⭐ Inicialização cluster
 
 - Escolha uma maquina como control plane master
 
@@ -120,6 +120,6 @@ kubeadm join --token 39c341.a3bc3c4dd49758d5 IP_DO_MASTER:6443 --discovery-token
 kubectl get nodes
 ```
 
-## Comandos kubectl
+# ⭐ Comandos kubectl
 
 - [https://github.com/jaksonlima/Kubernetes-Doc/blob/main/K8S-Commands.md](https://github.com/jaksonlima/Kubernetes-Doc/blob/main/K8S-Commands.md)
