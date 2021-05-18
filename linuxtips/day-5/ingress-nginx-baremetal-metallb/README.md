@@ -16,7 +16,15 @@ kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.6/manife
 kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
 ```
 
-#### Configuração de range de portas que você desejar usando camada layer2 é feito pelo configmap no mesmo namespace metallb-system
+#### Configuração de range de IP'S que você desejar usando camada layer2 é feito pelo configmap no mesmo namespace metallb-system
+
+#### Esses IP'S são de sua escolha, com uso de cloud - AWS,AZURE, pode-se colocar ip interno ele mapea para ip externo.
+
+#### Automatico já se obtem EXTERNAL-IP no service/nginx-controller apos isso já pode-se usar
+
+#### ec2-15-228-9-130.sa-east-1.compute.amazonaws.com, ou IP externo 152.565.9.489.
+
+#### Assim já possivel apontas DNS para o IP externo da cloud ele acessara seu ingress-nginx e seus ingress.
 
 #### link doc
 
