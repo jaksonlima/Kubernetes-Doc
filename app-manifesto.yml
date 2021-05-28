@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-service-nginx-blue
+  labels:
+    app: serviceservice-nginx-blue
+spec:
+  selector:
+    app: blue
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-service-nginx-red
+  labels:
+    app: service-nginx-red
+spec:
+  selector:
+    app: red
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 80
