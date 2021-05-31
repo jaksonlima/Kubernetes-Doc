@@ -183,7 +183,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 ```
 
-# ⭐ Instalação de um complemento de rede pod
+# ⭐ Instalação PodNetwork Weave Net
 
 - [https://kubernetes.io/docs/concepts/cluster-administration/networking/#how-to-implement-the-kubernetes-networking-model](https://kubernetes.io/docs/concepts/cluster-administration/networking/#how-to-implement-the-kubernetes-networking-model)
 
