@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-deployment
+spec:
+  selector:
+    matchLabels:
+      app: spring-deployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: spring-deployment
+    spec:
+      containers:
+      - image: jaksonsneider/spring:v3
+        imagePullPolicy: Always
+        name: spring
+        ports:
+        - containerPort: 8081
+        env:
+        - name: VERSION
+          value: 3.0.0
+        env:
+        - name: AUTHOR
+          value: Jakson Lima
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-service
+spec:
+  type: ClusterIP
+  selector:
+    app: spring-deployment         
+  ports:
+  - port: 8081
+    targetPort: 8081
+    protocol: TCP
