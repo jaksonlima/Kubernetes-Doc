@@ -1,0 +1,57 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-app
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: ingress-path-app
+  namespace: app
+spec:
+  defaultBackend:
+    service:
+      name: nginx-blue-service
+      port:
+        number: 80
+  ingressClassName: nginx
+  rules:
+    - host: k8s.jwsystem.com.br
+      http:
+        paths:
+          - backend:
+              service:
+                name: nginx-blue-service
+                port:
+                  number: 80
+            path: /blue
+            pathType: Prefix
+          - backend:
+              service:
+                name: nginx-red-service
+                port:
+                  number: 80
+            path: /red
+            pathType: Prefix
+    - host: blue.k8s.jwsystem.com.br
+      http:
+        paths:
+          - backend:
+              service:
+                name: nginx-blue-service
+                port:
+                  number: 80
+            pathType: ImplementationSpecific
+    - host: red.k8s.jwsystem.com.br
+      http:
+        paths:
+          - backend:
+              service:
+                name: nginx-red-service
+                port:
+                  number: 80
+            pathType: ImplementationSpecific
+  tls:
+    - hosts:
+        - k8s.jwsystem.com.br
+        - red.k8s.jwsystem.com.br
+        - blue.k8s.jwsystem.com.br
+      secretName: letsencrypt-app-key
