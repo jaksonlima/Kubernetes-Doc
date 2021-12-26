@@ -1,0 +1,80 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: app
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-blue-deployment
+  labels:
+    app: nginx-blue
+  namespace: app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx-blue
+  template:
+    metadata:
+      labels:
+        app: nginx-blue
+    spec:
+      containers:
+        - name: nginx-blue
+          image: jaksonsneider/nginx:blue
+          ports:
+            - containerPort: 80
+          resources: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-blue-service
+  namespace: app
+spec:
+  selector:
+    app: nginx-blue
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-red-deployment
+  labels:
+    app: nginx-red
+  namespace: app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx-red
+  template:
+    metadata:
+      labels:
+        app: nginx-red
+    spec:
+      containers:
+        - name: nginx-red
+          image: jaksonsneider/nginx:red
+          ports:
+            - containerPort: 80
+          resources: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-red-service
+  namespace: app
+spec:
+  selector:
+    app: nginx-red
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+---
+
