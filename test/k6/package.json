@@ -1,0 +1,11 @@
+{
+  "name": "k6",
+  "version": "1.0.0",
+  "description": "teste de carga kubernetes",
+  "main": "index.js",
+  "author": "Jakson Wilson Bonfim de Lima",
+  "license": "MIT",
+  "dependencies": {
+    "k6": "^0.0.0"
+  }
+}
